@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +30,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-slate-50">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <footer className="border-t border-gray-100 bg-white py-6 text-center text-sm text-gray-500">
-          <p>🧠 DSAQuest — Built for interview warriors 💪</p>
-        </footer>
+      <body className="min-h-full flex flex-col" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <footer className="border-t py-6 text-center text-sm" style={{ borderColor: 'var(--card-border)', background: 'var(--footer-bg)', color: 'var(--muted)' }}>
+            <p>🧠 DSAQuest — Built for interview warriors 💪</p>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

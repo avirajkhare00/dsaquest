@@ -16,10 +16,17 @@ export interface QuizQuestion {
   explanation: string;
 }
 
+export interface LeetcodeProblem {
+  title: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  url: string;
+}
+
 export interface Pattern {
   name: string;
   description: string;
   useCase: string;
+  problems?: LeetcodeProblem[];
 }
 
 export interface Topic {
@@ -59,9 +66,21 @@ export const topics: Topic[] = [
       { operation: 'Delete at middle', complexity: 'O(n)' },
     ],
     patterns: [
-      { name: 'Two Pointers', description: 'Use left/right pointers moving toward each other', useCase: 'Pair sum, palindrome check, container with most water' },
-      { name: 'Sliding Window', description: 'Move a fixed or variable window across the array', useCase: 'Max subarray sum, longest substring without repeating chars' },
-      { name: 'Prefix Sum', description: 'Pre-compute cumulative sums for O(1) range queries', useCase: 'Subarray sum equals k, range sum queries' },
+      { name: 'Two Pointers', description: 'Use left/right pointers moving toward each other', useCase: 'Pair sum, palindrome check, container with most water', problems: [
+        { title: 'Two Sum II', difficulty: 'Medium', url: 'https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/' },
+        { title: '3Sum', difficulty: 'Medium', url: 'https://leetcode.com/problems/3sum/' },
+        { title: 'Container With Most Water', difficulty: 'Medium', url: 'https://leetcode.com/problems/container-with-most-water/' },
+      ]},
+      { name: 'Sliding Window', description: 'Move a fixed or variable window across the array', useCase: 'Max subarray sum, longest substring without repeating chars', problems: [
+        { title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium', url: 'https://leetcode.com/problems/longest-substring-without-repeating-characters/' },
+        { title: 'Minimum Window Substring', difficulty: 'Hard', url: 'https://leetcode.com/problems/minimum-window-substring/' },
+        { title: 'Maximum Average Subarray I', difficulty: 'Easy', url: 'https://leetcode.com/problems/maximum-average-subarray-i/' },
+      ]},
+      { name: 'Prefix Sum', description: 'Pre-compute cumulative sums for O(1) range queries', useCase: 'Subarray sum equals k, range sum queries', problems: [
+        { title: 'Subarray Sum Equals K', difficulty: 'Medium', url: 'https://leetcode.com/problems/subarray-sum-equals-k/' },
+        { title: 'Range Sum Query - Immutable', difficulty: 'Easy', url: 'https://leetcode.com/problems/range-sum-query-immutable/' },
+        { title: 'Product of Array Except Self', difficulty: 'Medium', url: 'https://leetcode.com/problems/product-of-array-except-self/' },
+      ]},
     ],
     story: [
       {
@@ -212,9 +231,21 @@ function lengthOfLongestSubstring(s: string): number {
       { operation: 'Delete (given node)', complexity: 'O(1)' },
     ],
     patterns: [
-      { name: 'Fast & Slow Pointers', description: 'Two pointers at different speeds to detect cycles or find midpoints', useCase: 'Cycle detection, find middle, nth from end' },
-      { name: 'Reverse a List', description: 'Iteratively reassign next pointers using prev/curr/next', useCase: 'Palindrome LL, reverse k-groups, reorder list' },
-      { name: 'Dummy Head Node', description: 'Use a fake head node to simplify edge cases', useCase: 'Merge sorted lists, delete specific nodes' },
+      { name: 'Fast & Slow Pointers', description: 'Two pointers at different speeds to detect cycles or find midpoints', useCase: 'Cycle detection, find middle, nth from end', problems: [
+        { title: 'Linked List Cycle', difficulty: 'Easy', url: 'https://leetcode.com/problems/linked-list-cycle/' },
+        { title: 'Middle of the Linked List', difficulty: 'Easy', url: 'https://leetcode.com/problems/middle-of-the-linked-list/' },
+        { title: 'Happy Number', difficulty: 'Easy', url: 'https://leetcode.com/problems/happy-number/' },
+      ]},
+      { name: 'Reverse a List', description: 'Iteratively reassign next pointers using prev/curr/next', useCase: 'Palindrome LL, reverse k-groups, reorder list', problems: [
+        { title: 'Reverse Linked List', difficulty: 'Easy', url: 'https://leetcode.com/problems/reverse-linked-list/' },
+        { title: 'Palindrome Linked List', difficulty: 'Easy', url: 'https://leetcode.com/problems/palindrome-linked-list/' },
+        { title: 'Reverse Nodes in k-Group', difficulty: 'Hard', url: 'https://leetcode.com/problems/reverse-nodes-in-k-group/' },
+      ]},
+      { name: 'Dummy Head Node', description: 'Use a fake head node to simplify edge cases', useCase: 'Merge sorted lists, delete specific nodes', problems: [
+        { title: 'Merge Two Sorted Lists', difficulty: 'Easy', url: 'https://leetcode.com/problems/merge-two-sorted-lists/' },
+        { title: 'Remove Nth Node From End of List', difficulty: 'Medium', url: 'https://leetcode.com/problems/remove-nth-node-from-end-of-list/' },
+        { title: 'Add Two Numbers', difficulty: 'Medium', url: 'https://leetcode.com/problems/add-two-numbers/' },
+      ]},
     ],
     story: [
       {
@@ -411,9 +442,21 @@ function isPalindrome(head: ListNode | null): boolean {
       { operation: 'All comparison sorts', complexity: 'Ω(n log n)' },
     ],
     patterns: [
-      { name: 'Divide & Conquer', description: 'Split problem in half, solve recursively, combine results', useCase: 'Merge sort, count inversions, closest pair of points' },
-      { name: 'In-Place Partitioning', description: 'Partition array around a pivot without extra space', useCase: 'Quick sort, kth largest element, Dutch national flag' },
-      { name: 'Sort + Two Pointers', description: 'Sort first to enable O(n) two-pointer techniques', useCase: '3Sum, 4Sum, closest pair, merge intervals' },
+      { name: 'Divide & Conquer', description: 'Split problem in half, solve recursively, combine results', useCase: 'Merge sort, count inversions, closest pair of points', problems: [
+        { title: 'Sort an Array', difficulty: 'Medium', url: 'https://leetcode.com/problems/sort-an-array/' },
+        { title: 'Count of Smaller Numbers After Self', difficulty: 'Hard', url: 'https://leetcode.com/problems/count-of-smaller-numbers-after-self/' },
+        { title: 'Merge Sorted Array', difficulty: 'Easy', url: 'https://leetcode.com/problems/merge-sorted-array/' },
+      ]},
+      { name: 'In-Place Partitioning', description: 'Partition array around a pivot without extra space', useCase: 'Quick sort, kth largest element, Dutch national flag', problems: [
+        { title: 'Kth Largest Element in an Array', difficulty: 'Medium', url: 'https://leetcode.com/problems/kth-largest-element-in-an-array/' },
+        { title: 'Sort Colors', difficulty: 'Medium', url: 'https://leetcode.com/problems/sort-colors/' },
+        { title: 'Wiggle Sort II', difficulty: 'Medium', url: 'https://leetcode.com/problems/wiggle-sort-ii/' },
+      ]},
+      { name: 'Sort + Two Pointers', description: 'Sort first to enable O(n) two-pointer techniques', useCase: '3Sum, 4Sum, closest pair, merge intervals', problems: [
+        { title: '3Sum', difficulty: 'Medium', url: 'https://leetcode.com/problems/3sum/' },
+        { title: 'Merge Intervals', difficulty: 'Medium', url: 'https://leetcode.com/problems/merge-intervals/' },
+        { title: '4Sum', difficulty: 'Medium', url: 'https://leetcode.com/problems/4sum/' },
+      ]},
     ],
     story: [
       {
@@ -593,9 +636,21 @@ function partition(arr: number[], low: number, high: number): number {
       { operation: 'BFS (Level Order)', complexity: 'O(n)' },
     ],
     patterns: [
-      { name: 'DFS (Recursive)', description: 'Recursively process left subtree, root, right subtree in some order', useCase: 'Validate BST, max depth, path sum, lowest common ancestor' },
-      { name: 'BFS (Queue)', description: 'Process nodes level by level using a queue', useCase: 'Level order traversal, minimum depth, right side view' },
-      { name: 'BST Property', description: 'Left subtree < root < right subtree at every node', useCase: 'Inorder gives sorted order, validate BST, kth smallest' },
+      { name: 'DFS (Recursive)', description: 'Recursively process left subtree, root, right subtree in some order', useCase: 'Validate BST, max depth, path sum, lowest common ancestor', problems: [
+        { title: 'Maximum Depth of Binary Tree', difficulty: 'Easy', url: 'https://leetcode.com/problems/maximum-depth-of-binary-tree/' },
+        { title: 'Path Sum', difficulty: 'Easy', url: 'https://leetcode.com/problems/path-sum/' },
+        { title: 'Lowest Common Ancestor of a BST', difficulty: 'Medium', url: 'https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/' },
+      ]},
+      { name: 'BFS (Queue)', description: 'Process nodes level by level using a queue', useCase: 'Level order traversal, minimum depth, right side view', problems: [
+        { title: 'Binary Tree Level Order Traversal', difficulty: 'Medium', url: 'https://leetcode.com/problems/binary-tree-level-order-traversal/' },
+        { title: 'Minimum Depth of Binary Tree', difficulty: 'Easy', url: 'https://leetcode.com/problems/minimum-depth-of-binary-tree/' },
+        { title: 'Binary Tree Right Side View', difficulty: 'Medium', url: 'https://leetcode.com/problems/binary-tree-right-side-view/' },
+      ]},
+      { name: 'BST Property', description: 'Left subtree < root < right subtree at every node', useCase: 'Inorder gives sorted order, validate BST, kth smallest', problems: [
+        { title: 'Validate Binary Search Tree', difficulty: 'Medium', url: 'https://leetcode.com/problems/validate-binary-search-tree/' },
+        { title: 'Kth Smallest Element in a BST', difficulty: 'Medium', url: 'https://leetcode.com/problems/kth-smallest-element-in-a-bst/' },
+        { title: 'Convert Sorted Array to BST', difficulty: 'Easy', url: 'https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/' },
+      ]},
     ],
     story: [
       {
@@ -801,9 +856,21 @@ function isValidBST(
       { operation: 'Space', complexity: 'O(n)' },
     ],
     patterns: [
-      { name: 'Frequency Count', description: 'Count occurrences of each element in a single pass', useCase: 'Anagram check, most frequent element, first unique char' },
-      { name: 'Two-Sum Pattern', description: 'Store complement (target - x) in map, look up on each step', useCase: 'Two sum, three sum, subarray sum equals k' },
-      { name: 'Seen / Visited Set', description: 'Use a Set to check membership in O(1) instead of O(n)', useCase: 'Duplicate detection, cycle detection, contains duplicate' },
+      { name: 'Frequency Count', description: 'Count occurrences of each element in a single pass', useCase: 'Anagram check, most frequent element, first unique char', problems: [
+        { title: 'Valid Anagram', difficulty: 'Easy', url: 'https://leetcode.com/problems/valid-anagram/' },
+        { title: 'Top K Frequent Elements', difficulty: 'Medium', url: 'https://leetcode.com/problems/top-k-frequent-elements/' },
+        { title: 'Group Anagrams', difficulty: 'Medium', url: 'https://leetcode.com/problems/group-anagrams/' },
+      ]},
+      { name: 'Two-Sum Pattern', description: 'Store complement (target - x) in map, look up on each step', useCase: 'Two sum, three sum, subarray sum equals k', problems: [
+        { title: 'Two Sum', difficulty: 'Easy', url: 'https://leetcode.com/problems/two-sum/' },
+        { title: 'Subarray Sum Equals K', difficulty: 'Medium', url: 'https://leetcode.com/problems/subarray-sum-equals-k/' },
+        { title: 'Longest Consecutive Sequence', difficulty: 'Medium', url: 'https://leetcode.com/problems/longest-consecutive-sequence/' },
+      ]},
+      { name: 'Seen / Visited Set', description: 'Use a Set to check membership in O(1) instead of O(n)', useCase: 'Duplicate detection, cycle detection, contains duplicate', problems: [
+        { title: 'Contains Duplicate', difficulty: 'Easy', url: 'https://leetcode.com/problems/contains-duplicate/' },
+        { title: 'Happy Number', difficulty: 'Easy', url: 'https://leetcode.com/problems/happy-number/' },
+        { title: 'Intersection of Two Arrays', difficulty: 'Easy', url: 'https://leetcode.com/problems/intersection-of-two-arrays/' },
+      ]},
     ],
     story: [
       {
@@ -996,9 +1063,21 @@ function subarraySum(nums: number[], k: number): number {
       { operation: 'Space (matrix)', complexity: 'O(V²)' },
     ],
     patterns: [
-      { name: 'BFS (Shortest Path)', description: 'Use a queue to explore level by level — guarantees shortest path in unweighted graphs', useCase: 'Shortest path, word ladder, 0-1 matrix, rotting oranges' },
-      { name: 'DFS (Explore all)', description: 'Use recursion/stack to go deep before backtracking — finds all paths and components', useCase: 'Number of islands, cycle detection, topological sort, clone graph' },
-      { name: 'Union-Find', description: 'Efficiently track connected components with path compression and union by rank', useCase: 'Number of connected components, redundant connection, accounts merge' },
+      { name: 'BFS (Shortest Path)', description: 'Use a queue to explore level by level — guarantees shortest path in unweighted graphs', useCase: 'Shortest path, word ladder, 0-1 matrix, rotting oranges', problems: [
+        { title: 'Word Ladder', difficulty: 'Hard', url: 'https://leetcode.com/problems/word-ladder/' },
+        { title: 'Rotting Oranges', difficulty: 'Medium', url: 'https://leetcode.com/problems/rotting-oranges/' },
+        { title: 'Shortest Path in Binary Matrix', difficulty: 'Medium', url: 'https://leetcode.com/problems/shortest-path-in-binary-matrix/' },
+      ]},
+      { name: 'DFS (Explore all)', description: 'Use recursion/stack to go deep before backtracking — finds all paths and components', useCase: 'Number of islands, cycle detection, topological sort, clone graph', problems: [
+        { title: 'Number of Islands', difficulty: 'Medium', url: 'https://leetcode.com/problems/number-of-islands/' },
+        { title: 'Clone Graph', difficulty: 'Medium', url: 'https://leetcode.com/problems/clone-graph/' },
+        { title: 'Pacific Atlantic Water Flow', difficulty: 'Medium', url: 'https://leetcode.com/problems/pacific-atlantic-water-flow/' },
+      ]},
+      { name: 'Union-Find', description: 'Efficiently track connected components with path compression and union by rank', useCase: 'Number of connected components, redundant connection, accounts merge', problems: [
+        { title: 'Number of Connected Components', difficulty: 'Medium', url: 'https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/' },
+        { title: 'Redundant Connection', difficulty: 'Medium', url: 'https://leetcode.com/problems/redundant-connection/' },
+        { title: 'Accounts Merge', difficulty: 'Medium', url: 'https://leetcode.com/problems/accounts-merge/' },
+      ]},
     ],
     story: [
       {
@@ -1215,9 +1294,21 @@ function hasCycle(numNodes: number, adj: number[][]): boolean {
       { operation: 'DP space (typical)', complexity: 'O(n) or O(n²)' },
     ],
     patterns: [
-      { name: 'Memoization (Top-Down)', description: 'Recursive solution + cache results to avoid recomputation', useCase: 'Natural recursive problems: Fibonacci, coin change, word break' },
-      { name: 'Tabulation (Bottom-Up)', description: 'Fill a DP table iteratively from base cases up to the answer', useCase: 'Climbing stairs, knapsack, longest common subsequence' },
-      { name: 'Space Optimization', description: 'Reduce 2D DP to 1D or O(1) when you only need the previous row', useCase: 'Fibonacci to O(1), 2D DP to O(n) rolling array' },
+      { name: 'Memoization (Top-Down)', description: 'Recursive solution + cache results to avoid recomputation', useCase: 'Natural recursive problems: Fibonacci, coin change, word break', problems: [
+        { title: 'Climbing Stairs', difficulty: 'Easy', url: 'https://leetcode.com/problems/climbing-stairs/' },
+        { title: 'Word Break', difficulty: 'Medium', url: 'https://leetcode.com/problems/word-break/' },
+        { title: 'Decode Ways', difficulty: 'Medium', url: 'https://leetcode.com/problems/decode-ways/' },
+      ]},
+      { name: 'Tabulation (Bottom-Up)', description: 'Fill a DP table iteratively from base cases up to the answer', useCase: 'Climbing stairs, knapsack, longest common subsequence', problems: [
+        { title: 'Coin Change', difficulty: 'Medium', url: 'https://leetcode.com/problems/coin-change/' },
+        { title: 'Longest Common Subsequence', difficulty: 'Medium', url: 'https://leetcode.com/problems/longest-common-subsequence/' },
+        { title: 'Edit Distance', difficulty: 'Medium', url: 'https://leetcode.com/problems/edit-distance/' },
+      ]},
+      { name: 'Space Optimization', description: 'Reduce 2D DP to 1D or O(1) when you only need the previous row', useCase: 'Fibonacci to O(1), 2D DP to O(n) rolling array', problems: [
+        { title: 'House Robber', difficulty: 'Medium', url: 'https://leetcode.com/problems/house-robber/' },
+        { title: 'Jump Game', difficulty: 'Medium', url: 'https://leetcode.com/problems/jump-game/' },
+        { title: 'Unique Paths', difficulty: 'Medium', url: 'https://leetcode.com/problems/unique-paths/' },
+      ]},
     ],
     story: [
       {
@@ -1416,9 +1507,19 @@ function minDistance(word1: string, word2: string): number {
       { operation: 'Heap sort', complexity: 'O(n log n)' },
     ],
     patterns: [
-      { name: 'Top-K Elements', description: 'Use a min-heap of size K — discard anything smaller than current min', useCase: 'K largest elements, K closest points, K most frequent elements' },
-      { name: 'Merge K Sorted', description: 'Push first element of each list into a min-heap, extract min repeatedly', useCase: 'Merge K sorted lists/arrays, smallest range covering K lists' },
-      { name: 'Two Heaps', description: 'Use a max-heap for lower half and min-heap for upper half to track median', useCase: 'Find median from data stream, sliding window median' },
+      { name: 'Top-K Elements', description: 'Use a min-heap of size K — discard anything smaller than current min', useCase: 'K largest elements, K closest points, K most frequent elements', problems: [
+        { title: 'Kth Largest Element in an Array', difficulty: 'Medium', url: 'https://leetcode.com/problems/kth-largest-element-in-an-array/' },
+        { title: 'K Closest Points to Origin', difficulty: 'Medium', url: 'https://leetcode.com/problems/k-closest-points-to-origin/' },
+        { title: 'Top K Frequent Elements', difficulty: 'Medium', url: 'https://leetcode.com/problems/top-k-frequent-elements/' },
+      ]},
+      { name: 'Merge K Sorted', description: 'Push first element of each list into a min-heap, extract min repeatedly', useCase: 'Merge K sorted lists/arrays, smallest range covering K lists', problems: [
+        { title: 'Merge k Sorted Lists', difficulty: 'Hard', url: 'https://leetcode.com/problems/merge-k-sorted-lists/' },
+        { title: 'Smallest Range Covering Elements from K Lists', difficulty: 'Hard', url: 'https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/' },
+      ]},
+      { name: 'Two Heaps', description: 'Use a max-heap for lower half and min-heap for upper half to track median', useCase: 'Find median from data stream, sliding window median', problems: [
+        { title: 'Find Median from Data Stream', difficulty: 'Hard', url: 'https://leetcode.com/problems/find-median-from-data-stream/' },
+        { title: 'Sliding Window Median', difficulty: 'Hard', url: 'https://leetcode.com/problems/sliding-window-median/' },
+      ]},
     ],
     story: [
       {
@@ -1637,6 +1738,1170 @@ class MedianFinder {
         options: ['Sorting the stream after each insertion', 'A single max-heap of all elements', 'Two heaps: max-heap for lower half, min-heap for upper half', 'Binary search on a sorted array'],
         correctIndex: 2,
         explanation: 'Two heaps maintain the lower and upper halves. The median is the top of the larger heap (odd total) or average of both tops (even total). Each insertion is O(log n). Single heap doesn\'t help — you can\'t get the median without knowing the lower half\'s max.',
+      },
+    ],
+  },
+
+  // ─── Tries ─────────────────────────────────────────────────────────────────
+  {
+    slug: 'tries',
+    title: 'Tries',
+    emoji: '🌿',
+    tagline: 'Prefix Trees & Autocomplete',
+    description: 'The secret behind autocomplete, spell-checkers, and IP routing. Master the prefix tree that turns string search from O(n) to O(k) where k is just the word length.',
+    color: '#0d9488',
+    gradient: 'from-teal-400 to-cyan-600',
+    textColor: 'text-teal-600',
+    difficulty: 'Intermediate',
+    timeToComplete: '30 min',
+    keyComplexities: [
+      { operation: 'Insert', complexity: 'O(k)' },
+      { operation: 'Search', complexity: 'O(k)' },
+      { operation: 'startsWith prefix', complexity: 'O(k)' },
+      { operation: 'Space', complexity: 'O(n × k)' },
+      { operation: 'Delete', complexity: 'O(k)' },
+    ],
+    patterns: [
+      { name: 'Prefix Matching', description: 'Walk the trie one character at a time — reach the prefix node, then collect all words beneath', useCase: 'Autocomplete, word suggestions, longest common prefix', problems: [
+        { title: 'Implement Trie (Prefix Tree)', difficulty: 'Medium', url: 'https://leetcode.com/problems/implement-trie-prefix-tree/' },
+        { title: 'Longest Common Prefix', difficulty: 'Easy', url: 'https://leetcode.com/problems/longest-common-prefix/' },
+        { title: 'Search Suggestions System', difficulty: 'Medium', url: 'https://leetcode.com/problems/search-suggestions-system/' },
+      ]},
+      { name: 'Word Search in Trie', description: 'Combine DFS on a grid with trie lookup to prune search branches early', useCase: 'Word Search II, stream of characters, palindrome pairs', problems: [
+        { title: 'Word Search II', difficulty: 'Hard', url: 'https://leetcode.com/problems/word-search-ii/' },
+        { title: 'Add and Search Word', difficulty: 'Medium', url: 'https://leetcode.com/problems/design-add-and-search-words-data-structure/' },
+        { title: 'Stream of Characters', difficulty: 'Hard', url: 'https://leetcode.com/problems/stream-of-characters/' },
+      ]},
+      { name: 'Trie with Count', description: 'Store frequency or count at each node to rank suggestions or detect frequency', useCase: 'Top autocomplete suggestions, word frequency ranking', problems: [
+        { title: 'Search Suggestions System', difficulty: 'Medium', url: 'https://leetcode.com/problems/search-suggestions-system/' },
+        { title: 'Replace Words', difficulty: 'Medium', url: 'https://leetcode.com/problems/replace-words/' },
+      ]},
+    ],
+    story: [
+      {
+        id: 1,
+        emoji: '🔤',
+        title: 'The Spell-Checker\'s Secret',
+        narrative: `Every time you type a word and your phone suggests completions, a **Trie** (prefix tree) is working behind the scenes. But why not just use a HashMap?
+
+Imagine you need to find all words starting with "app" from a dictionary of 100,000 words. With a HashMap, you'd scan every single key — O(n). Terrible.
+
+With a **Trie**, you just walk three nodes: 'a' → 'p' → 'p', and everything beneath that node IS your answer. No scanning needed.
+
+A trie is a tree where:
+- Each **node** represents one **character**
+- The **path from root to any node** spells a prefix
+- A special **isEnd** flag marks where complete words end`,
+        concept: 'A Trie node has children[26] (one per letter) and an isEnd flag. Insert: walk/create nodes for each character, set isEnd=true at the last. Search: walk nodes for each character, return isEnd at the last. startsWith: same as search but don\'t check isEnd.',
+        codeExample: `class TrieNode {
+  children: Map<string, TrieNode> = new Map();
+  isEnd = false;
+}
+
+class Trie {
+  root = new TrieNode();
+
+  insert(word: string): void {
+    let node = this.root;
+    for (const ch of word) {
+      if (!node.children.has(ch)) node.children.set(ch, new TrieNode());
+      node = node.children.get(ch)!;
+    }
+    node.isEnd = true;
+  }
+
+  search(word: string): boolean {
+    let node = this.root;
+    for (const ch of word) {
+      if (!node.children.has(ch)) return false;
+      node = node.children.get(ch)!;
+    }
+    return node.isEnd; // must be a complete word
+  }
+
+  startsWith(prefix: string): boolean {
+    let node = this.root;
+    for (const ch of prefix) {
+      if (!node.children.has(ch)) return false;
+      node = node.children.get(ch)!;
+    }
+    return true; // prefix exists — don't check isEnd
+  }
+}`,
+        tip: '🎯 Interview tip: The key difference — search() checks isEnd=true, startsWith() doesn\'t. Many bugs come from confusing these two. Draw it out first!',
+      },
+      {
+        id: 2,
+        emoji: '🔮',
+        title: 'Autocomplete — The Full Power',
+        narrative: `You've built the trie. Now a user types "ap" and you need to return all words that start with "ap" — like a real autocomplete.
+
+The trick is two-step:
+1. **Navigate** to the prefix node (walk "a" → "p")
+2. **DFS** from that node, collecting all complete words below
+
+This is O(k + m) where k = prefix length and m = number of matching words. Much better than scanning the whole dictionary.
+
+**Word Search II** takes this further: given a 2D grid of letters and a list of words, find all words that exist in the grid (connecting adjacent cells). Insert all words into a trie, then DFS each cell of the grid, pruning branches that don't exist in the trie. Without the trie, you'd search for each word individually — O(words × cells × 4^maxLen). With the trie, you search once and find all simultaneously.`,
+        concept: 'Trie + DFS = powerful combination. For autocomplete: navigate to prefix node, then DFS collecting words where isEnd=true. For Word Search II: build trie from word list, then do grid DFS. At each cell, check if the current path exists in the trie — if not, prune immediately. This turns multiple independent searches into one shared search.',
+        codeExample: `// Autocomplete: get all words with given prefix
+function autocomplete(trie: Trie, prefix: string): string[] {
+  let node = trie.root;
+  for (const ch of prefix) {
+    if (!node.children.has(ch)) return []; // prefix doesn't exist
+    node = node.children.get(ch)!;
+  }
+  // DFS from prefix node
+  const results: string[] = [];
+  function dfs(n: TrieNode, path: string) {
+    if (n.isEnd) results.push(path);
+    for (const [ch, child] of n.children) dfs(child, path + ch);
+  }
+  dfs(node, prefix);
+  return results;
+}
+
+// Word Search II — trie + grid DFS
+function findWords(board: string[][], words: string[]): string[] {
+  const trie = new Trie();
+  words.forEach(w => trie.insert(w));
+
+  const found = new Set<string>();
+  const [rows, cols] = [board.length, board[0].length];
+
+  function dfs(r: number, c: number, node: TrieNode, path: string) {
+    if (r < 0 || r >= rows || c < 0 || c >= cols) return;
+    const ch = board[r][c];
+    if (ch === '#' || !node.children.has(ch)) return; // pruned!
+    const next = node.children.get(ch)!;
+    const word = path + ch;
+    if (next.isEnd) found.add(word);
+    board[r][c] = '#'; // mark visited
+    [[1,0],[-1,0],[0,1],[0,-1]].forEach(([dr,dc]) => dfs(r+dr, c+dc, next, word));
+    board[r][c] = ch; // restore
+  }
+
+  for (let r = 0; r < rows; r++)
+    for (let c = 0; c < cols; c++)
+      dfs(r, c, trie.root, '');
+
+  return [...found];
+}`,
+        tip: '🎯 Interview tip: In Word Search II, mark cells visited with a sentinel (like "#") during DFS and restore after — this prevents using extra space for a visited set.',
+      },
+      {
+        id: 3,
+        emoji: '⚙️',
+        title: 'Wildcards & Advanced Patterns',
+        narrative: `The "Add and Search Words" problem introduces wildcards: "." matches any character. How do you search "d.g" in a trie?
+
+When you hit a ".", you can't go to a specific child — you must try **all children** recursively. This turns search into DFS over the trie.
+
+Another pattern: storing **frequency** at each node. When users type "ap", you want to return the 3 most searched words starting with "ap", not all of them. Store search count at the end nodes and sort the DFS results.
+
+Tries also appear in problems like:
+- **Replace Words**: replace all words in a sentence with their shortest root in the dictionary
+- **Maximum XOR**: use a bit trie to find the number that XORs maximally with each element`,
+        concept: 'Wildcard search: when character is ".", iterate ALL children with DFS. For frequency-ranked autocomplete: store count at isEnd nodes, use priority queue during DFS collection. The key insight is that tries generalize to any "prefix structure" — bits, phone digits, IP addresses.',
+        codeExample: `// Add and Search Words (with wildcards)
+class WordDictionary {
+  root = new TrieNode();
+
+  addWord(word: string): void {
+    let node = this.root;
+    for (const ch of word) {
+      if (!node.children.has(ch)) node.children.set(ch, new TrieNode());
+      node = node.children.get(ch)!;
+    }
+    node.isEnd = true;
+  }
+
+  search(word: string): boolean {
+    return this.dfs(word, 0, this.root);
+  }
+
+  private dfs(word: string, i: number, node: TrieNode): boolean {
+    if (i === word.length) return node.isEnd;
+    const ch = word[i];
+    if (ch === '.') {
+      // Try ALL children
+      for (const child of node.children.values()) {
+        if (this.dfs(word, i + 1, child)) return true;
+      }
+      return false;
+    }
+    if (!node.children.has(ch)) return false;
+    return this.dfs(word, i + 1, node.children.get(ch)!);
+  }
+}`,
+        tip: '🎯 Interview tip: Tries shine when the problem involves PREFIXES of strings. If you see "find all words starting with X" or "check if any word in a list is a prefix of Y", reach for a trie.',
+      },
+    ],
+    quiz: [
+      {
+        id: 1,
+        question: 'What is the time complexity of searching for a word of length k in a trie with n total words?',
+        options: ['O(n)', 'O(k)', 'O(n × k)', 'O(log n)'],
+        correctIndex: 1,
+        explanation: 'Trie search is O(k) where k = length of the word — you simply walk one node per character. It\'s independent of how many words are in the trie! This is the key advantage over a HashMap scan for prefix operations.',
+      },
+      {
+        id: 2,
+        question: 'The key difference between trie.search("apple") and trie.startsWith("apple") is:',
+        options: ['search() is faster', 'search() checks isEnd=true at the last node; startsWith() just checks the prefix exists', 'startsWith() only works for short words', 'They are identical'],
+        correctIndex: 1,
+        explanation: 'Both walk the same path — one character per node. But search() requires the last node to have isEnd=true (complete word). startsWith() just checks that the path exists, regardless of isEnd. "apple" might be a prefix of "applesauce" but not itself be in the trie.',
+      },
+      {
+        id: 3,
+        question: 'Why is a trie better than a HashMap for finding all words with a given prefix?',
+        options: ['Tries use less memory', 'HashMap lookup is O(n) but trie prefix navigation is O(k) then collect all', 'HashMaps can\'t store strings', 'Tries support all string operations that HashMaps do plus O(k) prefix access'],
+        correctIndex: 3,
+        explanation: 'With a HashMap, finding all words with prefix "app" requires scanning all keys — O(n). With a trie, navigate to the "app" node in O(3) steps, then collect all words beneath via DFS. The trie structures words by their shared prefixes, enabling efficient prefix operations.',
+      },
+      {
+        id: 4,
+        question: 'In the Word Search II problem, why does building a trie from the word list improve performance?',
+        options: ['Trie uses less memory than the word list', 'You can search for ALL words simultaneously in one DFS, pruning invalid paths early', 'Grid DFS is not possible without a trie', 'It reduces the grid size'],
+        correctIndex: 1,
+        explanation: 'Without a trie, you\'d do one DFS per word — O(words × cells). With a trie, ONE DFS finds all words at once. The critical optimization: if the current path doesn\'t exist in the trie, you prune that entire branch. This is exponentially faster for large word lists.',
+      },
+      {
+        id: 5,
+        question: 'What does the isEnd flag in a trie node indicate?',
+        options: ['The node has no children', 'A complete word ends at this node (though more words may continue past it)', 'This is the deepest level of the trie', 'The character at this node is the last letter of the alphabet'],
+        correctIndex: 1,
+        explanation: '"apple" and "applesauce" share the path a-p-p-l-e. The node at "e" has isEnd=true (marking "apple") AND has child "s" (continuing to "applesauce"). isEnd means "a word ends here" — the trie can have both words stored with isEnd set at different depths.',
+      },
+    ],
+  },
+
+  // ─── Backtracking ──────────────────────────────────────────────────────────
+  {
+    slug: 'backtracking',
+    title: 'Backtracking',
+    emoji: '🔙',
+    tagline: 'Explore, Fail Fast, Undo',
+    description: 'The systematic "try everything" strategy. Master the recursive exploration pattern behind permutations, subsets, combination sums, N-Queens, and Sudoku solvers.',
+    color: '#7c3aed',
+    gradient: 'from-violet-500 to-purple-700',
+    textColor: 'text-violet-600',
+    difficulty: 'Advanced',
+    timeToComplete: '40 min',
+    keyComplexities: [
+      { operation: 'Subsets of n items', complexity: 'O(2ⁿ)' },
+      { operation: 'Permutations of n', complexity: 'O(n!)' },
+      { operation: 'Combinations C(n,k)', complexity: 'O(C(n,k) × k)' },
+      { operation: 'N-Queens', complexity: 'O(n!)' },
+      { operation: 'With pruning', complexity: 'Much faster in practice' },
+    ],
+    patterns: [
+      { name: 'Subsets / Power Set', description: 'At each element: choose to include it or not — binary decision tree', useCase: 'Subsets, subsets with duplicates, target sum combinations', problems: [
+        { title: 'Subsets', difficulty: 'Medium', url: 'https://leetcode.com/problems/subsets/' },
+        { title: 'Subsets II', difficulty: 'Medium', url: 'https://leetcode.com/problems/subsets-ii/' },
+        { title: 'Combination Sum', difficulty: 'Medium', url: 'https://leetcode.com/problems/combination-sum/' },
+      ]},
+      { name: 'Permutations', description: 'At each position, try every unused element — swap or use a visited set', useCase: 'All permutations, next permutation, letter tile possibilities', problems: [
+        { title: 'Permutations', difficulty: 'Medium', url: 'https://leetcode.com/problems/permutations/' },
+        { title: 'Permutations II', difficulty: 'Medium', url: 'https://leetcode.com/problems/permutations-ii/' },
+        { title: 'Letter Combinations of a Phone Number', difficulty: 'Medium', url: 'https://leetcode.com/problems/letter-combinations-of-a-phone-number/' },
+      ]},
+      { name: 'Constraint Satisfaction', description: 'Build solution incrementally, prune branches that violate constraints', useCase: 'N-Queens, Sudoku solver, word search', problems: [
+        { title: 'N-Queens', difficulty: 'Hard', url: 'https://leetcode.com/problems/n-queens/' },
+        { title: 'Sudoku Solver', difficulty: 'Hard', url: 'https://leetcode.com/problems/sudoku-solver/' },
+        { title: 'Word Search', difficulty: 'Medium', url: 'https://leetcode.com/problems/word-search/' },
+      ]},
+    ],
+    story: [
+      {
+        id: 1,
+        emoji: '🏰',
+        title: 'The Escape Room',
+        narrative: `You're trapped in an escape room. There are 4 doors, each leading to more doors. Some paths lead out. Most are dead ends.
+
+Your strategy: try Door 1. If it leads to a dead end, **backtrack** — return to where you were and try Door 2. Then Door 3. And so on. You systematically explore every possibility.
+
+This is **backtracking**: a recursive approach that:
+1. **Makes a choice** (open a door, add an element, place a queen)
+2. **Recurses** (explore what happens next)
+3. **Undoes the choice** when stuck (backtrack)
+4. **Tries the next option**
+
+It's brute force, but with **pruning** — if you know a path can't possibly lead to a solution, skip the entire subtree. This is what separates backtracking from pure brute force.`,
+        concept: 'Backtracking template: for each choice → make the choice → recurse → undo the choice. The "undo" step (popping from a list, restoring a value, marking unvisited) is what makes it backtracking. Without undo, it\'s just DFS. The power is in the constraint-checking to prune early.',
+        codeExample: `// The Universal Backtracking Template
+function backtrack(
+  choices: any[],
+  current: any[],
+  results: any[][],
+  ...constraints: any[]
+) {
+  // Base case: found a valid solution
+  if (isComplete(current)) {
+    results.push([...current]); // always copy!
+    return;
+  }
+
+  for (const choice of choices) {
+    if (!isValid(choice, current)) continue; // prune!
+
+    current.push(choice);        // make choice
+    backtrack(/* next state */); // recurse
+    current.pop();               // UNDO choice ← this is backtracking
+  }
+}
+
+// Generate all subsets of [1,2,3]
+function subsets(nums: number[]): number[][] {
+  const results: number[][] = [];
+
+  function bt(start: number, current: number[]) {
+    results.push([...current]); // every state is a valid subset
+
+    for (let i = start; i < nums.length; i++) {
+      current.push(nums[i]);    // include nums[i]
+      bt(i + 1, current);       // recurse with remaining
+      current.pop();            // exclude nums[i] (backtrack)
+    }
+  }
+
+  bt(0, []);
+  return results;
+}
+// subsets([1,2,3]) → [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]`,
+        tip: '🎯 Interview tip: Always use [...current] (spread) when pushing to results — never push the reference! current gets mutated by backtracking, so you\'d see all results as empty arrays if you push the reference.',
+      },
+      {
+        id: 2,
+        emoji: '🎲',
+        title: 'Permutations & Combinations',
+        narrative: `Two fundamental backtracking problems:
+
+**Permutations** of [1,2,3]: [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1] — **order matters**, use each element once. At each position, try every unused number (use a "used" set or swap in-place).
+
+**Combination Sum**: find all combinations that sum to target (can reuse elements). At each step, choose any number ≥ current to avoid duplicates, subtract from remaining target.
+
+The key insight: **where to start the loop** controls duplicates:
+- Permutations: loop from 0 (order matters, use visited set)
+- Combinations: loop from 'start' (order doesn't matter, no revisiting)
+- Subsets with duplicates: sort first, skip nums[i] === nums[i-1]`,
+        concept: 'Permutations: try all positions, use a visited array to skip used elements, O(n!). Combinations: start loop at current index (not 0) to avoid generating [1,2] and [2,1] separately, O(2^n). Duplicates: sort the input first, skip consecutive equal values at the same depth.',
+        codeExample: `// Permutations — O(n!)
+function permute(nums: number[]): number[][] {
+  const results: number[][] = [];
+  const used = new Array(nums.length).fill(false);
+
+  function bt(current: number[]) {
+    if (current.length === nums.length) { results.push([...current]); return; }
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) continue;
+      used[i] = true;
+      current.push(nums[i]);
+      bt(current);
+      current.pop();
+      used[i] = false;
+    }
+  }
+  bt([]);
+  return results;
+}
+
+// Combination Sum — reuse allowed
+function combinationSum(candidates: number[], target: number): number[][] {
+  const results: number[][] = [];
+
+  function bt(start: number, current: number[], remaining: number) {
+    if (remaining === 0) { results.push([...current]); return; }
+    if (remaining < 0) return; // pruned!
+
+    for (let i = start; i < candidates.length; i++) {
+      current.push(candidates[i]);
+      bt(i, current, remaining - candidates[i]); // i (not i+1) = reuse allowed
+      current.pop();
+    }
+  }
+  bt(0, [], target);
+  return results;
+}`,
+        tip: '🎯 Interview tip: Draw the decision tree before coding. Each level = one decision, each branch = one choice. The number of leaves = number of results. This instantly shows you the time complexity.',
+      },
+      {
+        id: 3,
+        emoji: '♛',
+        title: 'N-Queens: Constraint Satisfaction',
+        narrative: `Place N queens on an N×N chessboard so no two queens attack each other. This is the classic **constraint satisfaction** backtracking problem.
+
+Strategy: place queens row by row. For each row, try every column. Before placing, check: is this column safe? Is the diagonal safe?
+
+If no safe column exists in a row → backtrack to the previous row and try the next column there.
+
+Without pruning: try all N^N positions. With backtracking: prune entire branches when a queen placement is invalid. For N=8, instead of 8^8 = 16M states, we explore only ~2,000.
+
+The pruning insight: you don't need a 2D board. Track:
+- 'cols': set of used columns
+- 'diag1': set of (row - col) values (same diagonal)
+- 'diag2': set of (row + col) values (anti-diagonal)`,
+        concept: 'Constraint satisfaction: place one queen per row. Check validity in O(1) using column set and two diagonal sets. If valid: place, recurse, remove (backtrack). If you reach row N successfully: found a valid solution. Space-efficient: O(N) for the three sets instead of O(N²) board.',
+        codeExample: `function solveNQueens(n: number): string[][] {
+  const results: string[][] = [];
+  const cols = new Set<number>();
+  const diag1 = new Set<number>(); // row - col
+  const diag2 = new Set<number>(); // row + col
+  const board: number[] = []; // board[row] = column where queen is placed
+
+  function bt(row: number) {
+    if (row === n) {
+      results.push(board.map(col =>
+        '.'.repeat(col) + 'Q' + '.'.repeat(n - col - 1)
+      ));
+      return;
+    }
+
+    for (let col = 0; col < n; col++) {
+      if (cols.has(col) || diag1.has(row - col) || diag2.has(row + col))
+        continue; // this position is attacked — prune!
+
+      cols.add(col); diag1.add(row - col); diag2.add(row + col);
+      board.push(col);
+      bt(row + 1);
+      board.pop();
+      cols.delete(col); diag1.delete(row - col); diag2.delete(row + col);
+    }
+  }
+
+  bt(0);
+  return results;
+}`,
+        tip: '🎯 Interview tip: The diagonal check trick (row-col for \\ diagonals, row+col for / diagonals) is reusable in any chess-placement problem. Memorize it — it shows up in Sudoku Solver too.',
+      },
+    ],
+    quiz: [
+      {
+        id: 1,
+        question: 'What is the critical step that makes a recursive function "backtracking" (vs just DFS)?',
+        options: ['Using a stack instead of recursion', 'UNDOING the choice after the recursive call returns', 'Checking constraints before recursing', 'Returning early when the base case is hit'],
+        correctIndex: 1,
+        explanation: 'The defining feature of backtracking is the undo step: make choice → recurse → UNDO choice. Without undoing, you can\'t reuse the same data structure for different branches. Popping from a list, unmarking visited, restoring a cell — these are all "undo" operations.',
+      },
+      {
+        id: 2,
+        question: 'How many subsets does a set of n elements have?',
+        options: ['n!', 'n²', '2ⁿ', 'n log n'],
+        correctIndex: 2,
+        explanation: 'Each element has 2 choices: included or not. With n elements, that\'s 2×2×...×2 = 2ⁿ subsets. For n=3: {}, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3} = 8 = 2³.',
+      },
+      {
+        id: 3,
+        question: 'In backtracking, "pruning" means:',
+        options: ['Deleting elements from the input', 'Skipping recursive calls when we know they cannot lead to a valid solution', 'Sorting the candidates before recursing', 'Limiting the recursion depth'],
+        correctIndex: 1,
+        explanation: 'Pruning eliminates branches of the decision tree that can\'t possibly yield a valid result. Example: in Combination Sum, if remaining < 0, return immediately — no need to explore further. Pruning is what makes backtracking practical vs pure brute force.',
+      },
+      {
+        id: 4,
+        question: 'When generating combinations (not permutations) to avoid duplicates like [1,2] and [2,1], you should:',
+        options: ['Use a visited array', 'Sort the results and deduplicate', 'Start the inner loop from the current index (start), not from 0', 'Use a HashSet to skip duplicates'],
+        correctIndex: 2,
+        explanation: 'For combinations, starting the loop at `start` (not 0) ensures you only consider elements at or after the current position. This naturally prevents [2,1] after [1,2] since 1 < 2 and you never look backward. This is the cleanest O(1) deduplication.',
+      },
+      {
+        id: 5,
+        question: 'In the N-Queens problem, what is the most efficient way to check if a position (row, col) is safe?',
+        options: ['Scan the entire board for conflicts', 'Check row above one by one', 'Use three sets: used columns, (row-col) diagonals, (row+col) anti-diagonals — O(1) check', 'Use a 2D boolean grid'],
+        correctIndex: 2,
+        explanation: 'All cells on the same \\ diagonal share the same (row-col) value. All cells on the same / anti-diagonal share the same (row+col) value. Storing these in sets gives O(1) conflict checking. This is much better than scanning the board which is O(n).',
+      },
+    ],
+  },
+
+  // ─── Greedy ────────────────────────────────────────────────────────────────
+  {
+    slug: 'greedy',
+    title: 'Greedy Algorithms',
+    emoji: '💰',
+    tagline: 'Take the Best Now',
+    description: 'Make the locally optimal choice at each step and trust it leads to the global optimum. Learn when greedy works and when you need DP instead — a critical distinction for interviews.',
+    color: '#16a34a',
+    gradient: 'from-green-400 to-emerald-600',
+    textColor: 'text-green-600',
+    difficulty: 'Intermediate',
+    timeToComplete: '30 min',
+    keyComplexities: [
+      { operation: 'Activity Selection', complexity: 'O(n log n)' },
+      { operation: 'Jump Game', complexity: 'O(n)' },
+      { operation: 'Huffman Coding', complexity: 'O(n log n)' },
+      { operation: 'Fractional Knapsack', complexity: 'O(n log n)' },
+      { operation: 'Meeting Rooms', complexity: 'O(n log n)' },
+    ],
+    patterns: [
+      { name: 'Interval Scheduling', description: 'Sort intervals, greedily pick the one that ends earliest (leaves most room)', useCase: 'Meeting rooms, non-overlapping intervals, minimum platforms', problems: [
+        { title: 'Non-overlapping Intervals', difficulty: 'Medium', url: 'https://leetcode.com/problems/non-overlapping-intervals/' },
+        { title: 'Merge Intervals', difficulty: 'Medium', url: 'https://leetcode.com/problems/merge-intervals/' },
+        { title: 'Meeting Rooms II', difficulty: 'Medium', url: 'https://leetcode.com/problems/meeting-rooms-ii/' },
+      ]},
+      { name: 'Greedy with Heap', description: 'Use a priority queue to always process the most/least urgent item', useCase: 'Task scheduler, reorganize string, rearrange k-distance apart', problems: [
+        { title: 'Task Scheduler', difficulty: 'Medium', url: 'https://leetcode.com/problems/task-scheduler/' },
+        { title: 'Reorganize String', difficulty: 'Medium', url: 'https://leetcode.com/problems/reorganize-string/' },
+        { title: 'Gas Station', difficulty: 'Medium', url: 'https://leetcode.com/problems/gas-station/' },
+      ]},
+      { name: 'Greedy Linear Scan', description: 'Maintain a running "best so far" variable, update greedily', useCase: 'Jump Game, best time to buy stock, candy distribution', problems: [
+        { title: 'Jump Game', difficulty: 'Medium', url: 'https://leetcode.com/problems/jump-game/' },
+        { title: 'Jump Game II', difficulty: 'Medium', url: 'https://leetcode.com/problems/jump-game-ii/' },
+        { title: 'Best Time to Buy and Sell Stock', difficulty: 'Easy', url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/' },
+      ]},
+    ],
+    story: [
+      {
+        id: 1,
+        emoji: '💵',
+        title: 'The Greedy Cashier',
+        narrative: `A cashier needs to make change for $0.41 using the fewest coins: quarters, dimes, nickels, pennies.
+
+The greedy strategy: **always use the largest coin that fits**.
+- $0.41 → take a quarter (25¢) → $0.16 remaining
+- Take a dime (10¢) → $0.06 remaining
+- Take a nickel (5¢) → $0.01 remaining
+- Take a penny (1¢) → done! Total: 4 coins
+
+This works perfectly for standard US coins. But it **fails** for arbitrary coin systems! With coins [1, 3, 4] and target 6: greedy takes 4+1+1 = 3 coins, but 3+3 = 2 coins is optimal.
+
+This example perfectly captures greedy: **simple, fast, sometimes wrong**. The skill is knowing when "locally optimal = globally optimal."`,
+        concept: 'Greedy works when the problem has "greedy choice property": a locally optimal choice is part of some globally optimal solution. It also needs "optimal substructure": the subproblem after making the choice is also optimally solvable. When these hold, greedy beats DP in simplicity and speed.',
+        codeExample: `// Fractional Knapsack — greedy works (take highest value/weight ratio)
+function fractionalKnapsack(
+  items: { weight: number; value: number }[],
+  capacity: number
+): number {
+  // Sort by value/weight ratio (greedy choice)
+  items.sort((a, b) => b.value / b.weight - a.value / a.weight);
+
+  let totalValue = 0;
+  for (const item of items) {
+    if (capacity <= 0) break;
+    const take = Math.min(item.weight, capacity);
+    totalValue += (take / item.weight) * item.value;
+    capacity -= take;
+  }
+  return totalValue;
+}
+
+// 0/1 Knapsack — greedy FAILS, need DP
+// Can't take fractions, so greedy choice might be wrong
+
+// Jump Game — greedy works
+function canJump(nums: number[]): boolean {
+  let maxReach = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (i > maxReach) return false; // can't reach this index
+    maxReach = Math.max(maxReach, i + nums[i]);
+  }
+  return true;
+}`,
+        tip: '🎯 Interview tip: When you see "minimum number" or "maximum" problems, try greedy first. If it fails on a simple example, fall back to DP. The greedy→DP escalation is a common interview conversation.',
+      },
+      {
+        id: 2,
+        emoji: '📅',
+        title: 'The Meeting Room Scheduler',
+        narrative: `You have a list of meetings (start, end times). How do you fit the **maximum number** of non-overlapping meetings into a single room?
+
+Greedy insight: **always pick the meeting that ends earliest**. Why? By finishing earliest, you leave the maximum possible time for future meetings.
+
+Algorithm:
+1. Sort meetings by **end time**
+2. Take the first meeting
+3. For each subsequent meeting, take it only if it starts ≥ last taken end time
+4. Count meetings taken
+
+Proof it's optimal: suppose greedy picks meeting A but optimal picks meeting B instead (both finish first among remaining options). B ends no earlier than A (since A was the earliest). Swapping B for A can only help — A ends earlier or at the same time, leaving at least as much room. So greedy is never worse.
+
+This "exchange argument" proof works for many greedy interval problems.`,
+        concept: 'Interval scheduling greedy: sort by end time, greedily select non-overlapping. For "minimum rooms needed": sort by start, use a min-heap of end times — heap size at any point = rooms currently in use. O(n log n) for the sort.',
+        codeExample: `// Maximum non-overlapping meetings — O(n log n)
+function maxMeetings(intervals: [number, number][]): number {
+  intervals.sort((a, b) => a[1] - b[1]); // sort by END time
+  let count = 1;
+  let lastEnd = intervals[0][1];
+
+  for (let i = 1; i < intervals.length; i++) {
+    if (intervals[i][0] >= lastEnd) { // starts after last ends
+      count++;
+      lastEnd = intervals[i][1];
+    }
+  }
+  return count;
+}
+
+// Minimum meeting rooms needed — O(n log n)
+function minMeetingRooms(intervals: [number, number][]): number {
+  const starts = intervals.map(i => i[0]).sort((a, b) => a - b);
+  const ends = intervals.map(i => i[1]).sort((a, b) => a - b);
+
+  let rooms = 0, maxRooms = 0, j = 0;
+  for (let i = 0; i < starts.length; i++) {
+    if (starts[i] < ends[j]) {
+      rooms++; // new meeting starts before any ends
+    } else {
+      j++; // a meeting ended, reuse that room
+    }
+    maxRooms = Math.max(maxRooms, rooms);
+  }
+  return maxRooms;
+}`,
+        tip: '🎯 Interview tip: "Non-overlapping intervals" / "remove minimum intervals to make non-overlapping" → sort by end time, greedily keep. "Minimum rooms / platforms" → sort starts and ends separately, use two-pointer.',
+      },
+      {
+        id: 3,
+        emoji: '🦘',
+        title: 'Jump Game — Greedy Thinking',
+        narrative: `"Jump Game": given an array where each element is your max jump length from that position, can you reach the last index?
+
+Brute force / DP: O(n²) — for each position, check if any previous position can reach it.
+
+Greedy insight: track the **furthest reachable index** as you walk. At each position i, update furthest = max(furthest, i + nums[i]). If i ever exceeds furthest, you're stuck.
+
+Jump Game II (minimum jumps to reach end): at each "level" of reachable positions (like BFS), find the furthest you can reach in one more jump. Count levels.
+
+The greedy here works because: if position i is reachable, then everything up to i + nums[i] is also potentially reachable. We only need the maximum reach, not the exact path.`,
+        concept: 'Greedy linear scan: maintain one variable (maxReach, maxProfit, minPrice, etc.) and update it as you scan. No backtracking needed. This O(n) pattern works when the answer can be computed from a single left-to-right pass maintaining the optimal "running state".',
+        codeExample: `// Jump Game I — can you reach end?
+function canJump(nums: number[]): boolean {
+  let maxReach = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (i > maxReach) return false;
+    maxReach = Math.max(maxReach, i + nums[i]);
+  }
+  return true; // maxReach >= nums.length - 1
+}
+
+// Jump Game II — minimum jumps (BFS-like greedy)
+function jump(nums: number[]): number {
+  let jumps = 0, curEnd = 0, farthest = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    farthest = Math.max(farthest, i + nums[i]);
+    if (i === curEnd) {   // exhausted current jump range
+      jumps++;            // must jump!
+      curEnd = farthest;  // extend range
+    }
+  }
+  return jumps;
+}
+
+// Best Time to Buy and Sell Stock — greedy with min tracking
+function maxProfit(prices: number[]): number {
+  let minPrice = Infinity, maxProfit = 0;
+  for (const price of prices) {
+    minPrice = Math.min(minPrice, price);          // greedy: track lowest buy
+    maxProfit = Math.max(maxProfit, price - minPrice); // greedy: check best sell
+  }
+  return maxProfit;
+}`,
+        tip: '🎯 Interview tip: If greedy gives a "locally optimal" at each step but you\'re not sure it\'s globally optimal, try to find a counterexample with 3-4 elements. If you can\'t, it\'s likely correct. If you can, switch to DP.',
+      },
+    ],
+    quiz: [
+      {
+        id: 1,
+        question: 'Greedy algorithms make locally optimal choices. When does this guarantee a globally optimal solution?',
+        options: ['Always — greedy is always optimal', 'When the problem has greedy choice property AND optimal substructure', 'Only when the input is sorted', 'Only for graph problems'],
+        correctIndex: 1,
+        explanation: 'Two conditions: (1) Greedy choice property — a locally optimal choice is part of some globally optimal solution. (2) Optimal substructure — optimal solution to the original problem contains optimal solutions to subproblems. Without both, greedy can fail (like 0/1 Knapsack).',
+      },
+      {
+        id: 2,
+        question: 'For "maximum non-overlapping intervals", the greedy strategy is to sort by:',
+        options: ['Start time, take non-overlapping from left', 'Duration (shortest first)', 'End time, greedily take the earliest-ending non-overlapping interval', 'End time descending'],
+        correctIndex: 2,
+        explanation: 'Sort by end time ascending, then greedily select intervals that start ≥ previous end. By always picking the earliest-ending available interval, you leave maximum room for future intervals. Sorting by start time or duration does NOT work — it\'s a common wrong answer.',
+      },
+      {
+        id: 3,
+        question: 'The greedy coin change algorithm (largest coin first) FAILS for which coin system?',
+        options: ['US coins [1, 5, 10, 25]', 'Coins [1, 3, 4] with target 6 (optimal: 3+3=2 coins, greedy: 4+1+1=3 coins)', 'Any sorted coin system', 'Coins with gaps between denominations'],
+        correctIndex: 1,
+        explanation: 'US coins work because each denomination is a multiple of smaller ones. [1,3,4] breaks this: greedy picks 4 first (leaving 2, requiring two 1s = 3 total), but [3,3] is optimal (2 coins). This is why Coin Change uses DP, not greedy.',
+      },
+      {
+        id: 4,
+        question: 'In Jump Game, the greedy approach tracks:',
+        options: ['The path of jumps taken', 'The maximum index reachable from any visited position', 'The minimum number of jumps', 'All positions reachable in exactly k jumps'],
+        correctIndex: 1,
+        explanation: 'Track maxReach = maximum index reachable from any position visited so far. At each position i: if i > maxReach, return false (stuck). Otherwise update maxReach = max(maxReach, i + nums[i]). One linear scan, O(n) time, O(1) space.',
+      },
+      {
+        id: 5,
+        question: 'What is the time complexity of the interval scheduling problem (maximum non-overlapping meetings)?',
+        options: ['O(n)', 'O(n log n) — dominated by sorting', 'O(n²)', 'O(n log n) — but with O(n) space'],
+        correctIndex: 1,
+        explanation: 'Sorting takes O(n log n). The greedy selection scan is O(n). Total: O(n log n) dominated by the sort. Space is O(1) if we sort in-place (or O(log n) for sort stack). The sort is essential — without it, greedy selection doesn\'t work.',
+      },
+    ],
+  },
+
+  // ─── Bit Manipulation ──────────────────────────────────────────────────────
+  {
+    slug: 'bit-manipulation',
+    title: 'Bit Manipulation',
+    emoji: '⚡',
+    tagline: 'Power of Binary',
+    description: 'Harness the raw power of bitwise operations. Learn XOR tricks, bitmask patterns, and Brian Kernighan\'s algorithm — interview tricks that turn complex problems into one-liners.',
+    color: '#2563eb',
+    gradient: 'from-blue-500 to-indigo-600',
+    textColor: 'text-blue-600',
+    difficulty: 'Intermediate',
+    timeToComplete: '25 min',
+    keyComplexities: [
+      { operation: 'Any bitwise op', complexity: 'O(1)' },
+      { operation: 'Count set bits (naive)', complexity: 'O(log n)' },
+      { operation: 'Count set bits (Kernighan)', complexity: 'O(set bits)' },
+      { operation: 'Check power of 2', complexity: 'O(1)' },
+      { operation: 'Enumerate subsets', complexity: 'O(2ⁿ × n)' },
+    ],
+    patterns: [
+      { name: 'XOR Tricks', description: 'XOR cancels duplicates: a^a=0, a^0=a. Use to find unique elements or missing numbers', useCase: 'Single number, missing number, find two non-repeating', problems: [
+        { title: 'Single Number', difficulty: 'Easy', url: 'https://leetcode.com/problems/single-number/' },
+        { title: 'Missing Number', difficulty: 'Easy', url: 'https://leetcode.com/problems/missing-number/' },
+        { title: 'Single Number III', difficulty: 'Medium', url: 'https://leetcode.com/problems/single-number-iii/' },
+      ]},
+      { name: 'Bit Masking', description: 'Use AND to check/clear bits, OR to set bits, XOR to flip bits', useCase: 'Subsets enumeration, power of 2 check, divide without division', problems: [
+        { title: 'Number of 1 Bits', difficulty: 'Easy', url: 'https://leetcode.com/problems/number-of-1-bits/' },
+        { title: 'Power of Two', difficulty: 'Easy', url: 'https://leetcode.com/problems/power-of-two/' },
+        { title: 'Counting Bits', difficulty: 'Easy', url: 'https://leetcode.com/problems/counting-bits/' },
+      ]},
+      { name: 'Bitmask DP', description: 'Use integer as a set representation — bit i=1 means element i is included', useCase: 'Traveling salesman, shortest path visiting all nodes, minimum cost to cut sticks', problems: [
+        { title: 'Partition to K Equal Sum Subsets', difficulty: 'Medium', url: 'https://leetcode.com/problems/partition-to-k-equal-sum-subsets/' },
+        { title: 'Minimum Number of Work Sessions', difficulty: 'Medium', url: 'https://leetcode.com/problems/minimum-number-of-work-sessions-to-finish-the-tasks/' },
+      ]},
+    ],
+    story: [
+      {
+        id: 1,
+        emoji: '🔬',
+        title: 'The Binary World',
+        narrative: `Every number in a computer is a sequence of **bits** — 0s and 1s. The number 13 is stored as 1101 in binary.
+
+Four fundamental operations:
+- **AND (&)**: both bits must be 1 → "both conditions true"
+- **OR (|)**: at least one bit is 1 → "either condition true"
+- **XOR (^)**: bits are different → "exactly one is true"
+- **NOT (~)**: flip all bits → "negate"
+
+Plus shifts:
+- **Left shift (<<)**: multiply by 2 per shift (5 << 1 = 10)
+- **Right shift (>>)**: divide by 2 per shift (10 >> 1 = 5)
+
+These operations run in **O(1)** — a single CPU instruction. Problems that look hard in decimal become trivial in binary.`,
+        concept: 'Key bit operations: check bit k: (n >> k) & 1. Set bit k: n | (1 << k). Clear bit k: n & ~(1 << k). Toggle bit k: n ^ (1 << k). Power of 2: n & (n-1) == 0. Brian Kernighan (remove lowest set bit): n & (n-1). Get lowest set bit: n & (-n).',
+        codeExample: `// Essential bit operations
+const n = 0b1101; // = 13
+
+// Check if bit k is set
+(n >> 2) & 1; // = 1 (bit 2 of 13 is set)
+(n >> 1) & 1; // = 0 (bit 1 of 13 is not set)
+
+// Set bit k
+n | (1 << 1);  // = 0b1111 = 15
+
+// Clear bit k
+n & ~(1 << 3); // = 0b0101 = 5
+
+// Toggle bit k
+n ^ (1 << 2);  // = 0b1001 = 9
+
+// Power of 2 check
+(16 & 15) === 0;  // true (16 is power of 2)
+(12 & 11) === 0;  // false (12 is not power of 2)
+
+// Count set bits (Brian Kernighan)
+function countBits(n: number): number {
+  let count = 0;
+  while (n > 0) { n &= (n - 1); count++; } // removes lowest set bit
+  return count;
+}
+// countBits(13) = countBits(0b1101) = 3`,
+        tip: '🎯 Interview tip: n & (n-1) removes the lowest set bit. This is used in Kernighan\'s algorithm (count set bits) and power-of-2 check. Memorize both tricks.',
+      },
+      {
+        id: 2,
+        emoji: '✨',
+        title: 'XOR: The Magic Operator',
+        narrative: `XOR has magical properties that solve problems that look impossible at first glance:
+
+**Property 1**: a ^ a = 0 (number XORed with itself = 0)
+**Property 2**: a ^ 0 = a (XOR with 0 = identity)
+**Property 3**: XOR is commutative and associative
+
+**Single Number**: an array where every element appears twice except one. XOR all elements together — all pairs cancel to 0, leaving just the single number! O(n) time, O(1) space.
+
+**Missing Number**: numbers 0..n with one missing. XOR all indices (0..n) with all values. Pairs cancel, leaving the missing number.
+
+**Find Duplicate**: XOR all indices with all values in an array that has one duplicate — pairs cancel.
+
+Three completely different problems, one technique.`,
+        concept: 'XOR is self-inverse (a^a=0), identity (a^0=a), commutative, associative. When you XOR a sequence where every element appears an even number of times except one, the result is that one element. Extend to "two unique elements" by splitting into two groups using XOR\'s lowest set bit.',
+        codeExample: `// Single Number — O(n) time, O(1) space
+function singleNumber(nums: number[]): number {
+  return nums.reduce((xor, n) => xor ^ n, 0);
+  // All pairs cancel: 2^2^3^3^5 = 0^0^5 = 5
+}
+
+// Missing Number — XOR index with value
+function missingNumber(nums: number[]): number {
+  let result = nums.length; // XOR with n itself
+  for (let i = 0; i < nums.length; i++) {
+    result ^= i ^ nums[i]; // cancel out pairs
+  }
+  return result;
+}
+
+// Single Number III — two elements appear once, rest appear twice
+function singleNumberIII(nums: number[]): [number, number] {
+  const xorAll = nums.reduce((x, n) => x ^ n, 0);
+  // xorAll = a ^ b. Find any bit that differs between a and b:
+  const diffBit = xorAll & (-xorAll); // lowest set bit
+  // Partition into two groups: those with this bit set and those without
+  let a = 0;
+  for (const n of nums) if (n & diffBit) a ^= n;
+  return [a, xorAll ^ a];
+}`,
+        tip: '🎯 Interview tip: XOR solves "find the unique/missing element" in O(n) time and O(1) space — much better than HashSet (O(n) space). If you see "every element appears twice except one", think XOR immediately.',
+      },
+      {
+        id: 3,
+        emoji: '🎭',
+        title: 'Bitmask Tricks for Subsets',
+        narrative: `A bitmask is an integer where each bit represents a boolean (included/excluded). For n items, there are 2ⁿ possible subsets, each represented by a number from 0 to 2ⁿ-1.
+
+Enumerate all subsets of [a,b,c]:
+- 000 = {}
+- 001 = {c}
+- 010 = {b}
+- 011 = {b,c}
+- 100 = {a}
+- 101 = {a,c}
+- 110 = {a,b}
+- 111 = {a,b,c}
+
+To check if element i is in subset mask: (mask >> i) & 1.
+To add element i: mask | (1 << i).
+
+This representation is used in **Bitmask DP**: track which items have been used as a bitmask state. For example, Traveling Salesman Problem with n≤20 uses dp[mask][last] — O(2ⁿ × n²) instead of O(n!).`,
+        concept: 'Bitmask as state: dp[mask] represents "what\'s the answer when the set of items represented by mask has been used". Iterate all 2^n masks. For each mask, iterate all items to add next. Classic use: minimum cost to visit all nodes (TSP variant), partition into equal-sum subsets.',
+        codeExample: `// Enumerate all subsets of an array
+function allSubsets(nums: number[]): number[][] {
+  const n = nums.length;
+  const result: number[][] = [];
+
+  for (let mask = 0; mask < (1 << n); mask++) {
+    const subset: number[] = [];
+    for (let i = 0; i < n; i++) {
+      if ((mask >> i) & 1) subset.push(nums[i]);
+    }
+    result.push(subset);
+  }
+  return result;
+}
+
+// Count number of set bits (popcount)
+function hammingWeight(n: number): number {
+  let count = 0;
+  while (n !== 0) { n >>>= 1; count += n & 1; } // but this is O(32)
+  return count;
+}
+
+// Faster: Brian Kernighan
+function hammingWeightFast(n: number): number {
+  let count = 0;
+  while (n !== 0) { n &= (n - 1); count++; } // removes lowest set bit
+  return count; // only loops once per SET bit, not per total bit
+}
+
+// Reverse bits of 32-bit integer
+function reverseBits(n: number): number {
+  let result = 0;
+  for (let i = 0; i < 32; i++) {
+    result = (result << 1) | (n & 1);
+    n >>>= 1; // unsigned right shift
+  }
+  return result >>> 0; // convert to unsigned 32-bit
+}`,
+        tip: '🎯 Interview tip: n & (n-1) is O(set bits), not O(total bits). For sparse integers with few set bits, it\'s much faster than shifting through all 32 bits. Mention this in interviews — it shows deep understanding.',
+      },
+    ],
+    quiz: [
+      {
+        id: 1,
+        question: 'What does the expression n & (n-1) do?',
+        options: ['Checks if n is even', 'Removes the lowest set bit from n', 'Multiplies n by 2', 'Checks if n is a power of 2'],
+        correctIndex: 1,
+        explanation: 'n-1 flips all bits from the lowest set bit downward. AND-ing with n clears the lowest set bit. Example: 12 (1100) & 11 (1011) = 1000 = 8 (lowest set bit at position 2 removed). Used in Kernighan\'s bit count algorithm and power-of-2 check (n & n-1 == 0).',
+      },
+      {
+        id: 2,
+        question: 'XOR of all numbers from 1 to n, then XOR with all elements in an array of [1..n] with one missing gives:',
+        options: ['0', 'The sum of all numbers', 'The missing number', 'The largest number'],
+        correctIndex: 2,
+        explanation: 'XOR is self-inverse: a^a=0. Every number 1..n appears twice in the combined XOR (once from the index, once from the array) — EXCEPT the missing number which appears only from the index sequence. These all cancel to 0, leaving just the missing number.',
+      },
+      {
+        id: 3,
+        question: 'How do you check if the kth bit (0-indexed from right) of number n is set?',
+        options: ['n % (k+1) == 0', '(n >> k) & 1', 'n & k', 'n | (1 << k)'],
+        correctIndex: 1,
+        explanation: 'Shift n right by k positions brings bit k to position 0. Then AND with 1 extracts just that bit. If result is 1, the bit is set; if 0, it\'s not. Example: n=13 (1101), k=2: 13>>2=3 (0011), 3&1=1 ✓',
+      },
+      {
+        id: 4,
+        question: 'Using bitmask to represent subsets, how do you check if element i is in the subset represented by mask?',
+        options: ['mask % i == 0', '(mask >> i) & 1', 'mask & i', 'mask | (1 << i)'],
+        correctIndex: 1,
+        explanation: 'Each element i maps to bit position i in the mask. Shift mask right by i to bring bit i to position 0, then AND with 1. If 1: element i is in the subset. If 0: not included. This is the core operation of bitmask DP.',
+      },
+      {
+        id: 5,
+        question: 'The "Single Number" problem (every element appears twice except one) can be solved in O(n) time and O(1) space using:',
+        options: ['Sorting and scanning', 'A HashSet (insert and check, remove if seen)', 'XOR all elements — pairs cancel to 0, leaving the unique element', 'Prefix sum'],
+        correctIndex: 2,
+        explanation: 'XOR all elements: pairs cancel (a^a=0), single element remains (a^0=a). O(n) time, O(1) space. HashSet approach is O(n) time but O(n) space. Sorting is O(n log n). XOR is the optimal solution and a classic interview trick.',
+      },
+    ],
+  },
+
+  // ─── Advanced Graphs ───────────────────────────────────────────────────────
+  {
+    slug: 'advanced-graphs',
+    title: 'Advanced Graphs',
+    emoji: '🛰️',
+    tagline: 'Dijkstra, Union-Find & Topo Sort',
+    description: 'Graduate from basic BFS/DFS to weighted shortest paths (Dijkstra), connected components (Union-Find), and dependency ordering (topological sort).',
+    color: '#0f766e',
+    gradient: 'from-teal-500 to-emerald-600',
+    textColor: 'text-teal-600',
+    difficulty: 'Advanced',
+    timeToComplete: '45 min',
+    keyComplexities: [
+      { operation: 'Dijkstra (binary heap)', complexity: 'O((V+E) log V)' },
+      { operation: 'Union-Find (find)', complexity: 'O(α(n)) ≈ O(1)' },
+      { operation: 'Union-Find (union)', complexity: 'O(α(n)) ≈ O(1)' },
+      { operation: 'Topological Sort', complexity: 'O(V + E)' },
+      { operation: 'Bellman-Ford', complexity: 'O(V × E)' },
+    ],
+    patterns: [
+      { name: 'Dijkstra\'s Algorithm', description: 'Greedy shortest path using a min-heap priority queue on weighted graphs', useCase: 'Network delay time, cheapest flights, path with minimum effort', problems: [
+        { title: 'Network Delay Time', difficulty: 'Medium', url: 'https://leetcode.com/problems/network-delay-time/' },
+        { title: 'Path With Minimum Effort', difficulty: 'Medium', url: 'https://leetcode.com/problems/path-with-minimum-effort/' },
+        { title: 'Cheapest Flights Within K Stops', difficulty: 'Medium', url: 'https://leetcode.com/problems/cheapest-flights-within-k-stops/' },
+      ]},
+      { name: 'Union-Find (DSU)', description: 'Track connected components with near-O(1) union and find via path compression + union by rank', useCase: 'Connected components, cycle detection, Kruskal\'s MST', problems: [
+        { title: 'Redundant Connection', difficulty: 'Medium', url: 'https://leetcode.com/problems/redundant-connection/' },
+        { title: 'Number of Provinces', difficulty: 'Medium', url: 'https://leetcode.com/problems/number-of-provinces/' },
+        { title: 'Accounts Merge', difficulty: 'Medium', url: 'https://leetcode.com/problems/accounts-merge/' },
+      ]},
+      { name: 'Topological Sort', description: 'Order nodes so all directed edges go from earlier to later (only on DAGs)', useCase: 'Course schedule, alien dictionary, build dependency order', problems: [
+        { title: 'Course Schedule', difficulty: 'Medium', url: 'https://leetcode.com/problems/course-schedule/' },
+        { title: 'Course Schedule II', difficulty: 'Medium', url: 'https://leetcode.com/problems/course-schedule-ii/' },
+        { title: 'Alien Dictionary', difficulty: 'Hard', url: 'https://leetcode.com/problems/alien-dictionary/' },
+      ]},
+    ],
+    story: [
+      {
+        id: 1,
+        emoji: '🗺️',
+        title: 'Dijkstra — The GPS Algorithm',
+        narrative: `Google Maps needs the **shortest route** between two cities on a weighted road network. BFS finds shortest by number of edges, but here edges have **weights** (distances). BFS won't work.
+
+Enter **Dijkstra's algorithm** (1956). The insight: greedily process nodes in order of their known shortest distance from the source.
+
+Algorithm:
+1. Start: dist[source]=0, dist[all others]=∞
+2. Use a **min-heap** ordered by distance
+3. Pop the closest unprocessed node
+4. Relax all its neighbors: if dist[node] + edge_weight < dist[neighbor], update dist[neighbor]
+5. Push updated neighbors into the heap
+6. Repeat until heap is empty
+
+The min-heap ensures you always process the globally closest node next — greedy correctness!`,
+        concept: 'Dijkstra is greedy: once a node is popped from the heap, its shortest distance is FINAL (no shorter path can exist because all weights are non-negative). Time: O((V+E) log V) with a binary heap. DOES NOT work with negative weights — use Bellman-Ford for those.',
+        codeExample: `function dijkstra(graph: Map<number, [number, number][]>, start: number, n: number): number[] {
+  const dist = new Array(n).fill(Infinity);
+  dist[start] = 0;
+
+  // Min-heap: [distance, node]
+  const heap: [number, number][] = [[0, start]];
+
+  while (heap.length > 0) {
+    heap.sort((a, b) => a[0] - b[0]); // use real min-heap in production
+    const [d, node] = heap.shift()!;
+
+    if (d > dist[node]) continue; // outdated entry, skip
+
+    for (const [neighbor, weight] of (graph.get(node) ?? [])) {
+      const newDist = dist[node] + weight;
+      if (newDist < dist[neighbor]) {
+        dist[neighbor] = newDist;
+        heap.push([newDist, neighbor]);
+      }
+    }
+  }
+  return dist; // dist[i] = shortest distance from start to i
+}
+
+// Network Delay Time: min time for signal to reach all nodes
+function networkDelayTime(times: number[][], n: number, k: number): number {
+  const graph = new Map<number, [number, number][]>();
+  for (const [u, v, w] of times) {
+    if (!graph.has(u)) graph.set(u, []);
+    graph.get(u)!.push([v, w]);
+  }
+  const dist = dijkstra(graph, k, n + 1);
+  const max = Math.max(...dist.slice(1)); // nodes 1..n
+  return max === Infinity ? -1 : max;
+}`,
+        tip: '🎯 Interview tip: Dijkstra = BFS + weighted edges + min-heap. BFS uses a regular queue (FIFO). Dijkstra uses a min-heap (priority queue by distance). That\'s the only fundamental difference.',
+      },
+      {
+        id: 2,
+        emoji: '🔗',
+        title: 'Union-Find — Connected Components',
+        narrative: `You have a social network. People arrive and form friendships. At any point, answer: "Are Alice and Bob in the same friend group?"
+
+The naive approach: rebuild the connected components from scratch after each friendship — O(n) per query. Terrible for a live network.
+
+**Union-Find** (Disjoint Set Union) solves this in near-O(1):
+- **find(x)**: return the "representative" (root) of x's component
+- **union(x, y)**: merge the components of x and y
+
+With two optimizations:
+- **Path compression**: make every node point directly to the root (flatten the tree)
+- **Union by rank**: always merge smaller tree under larger tree (keep trees flat)
+
+Both optimizations together give amortized O(α(n)) ≈ O(1) — the inverse Ackermann function. Practically, it's faster than any real-world scenario can distinguish from O(1).`,
+        concept: 'Union-Find: parent array where parent[i] = i means i is a root. find() walks to root (with path compression). union() connects two roots (by rank). After m operations: O(m × α(n)) ≈ O(m). Used for: connected components, cycle detection in undirected graphs, Kruskal\'s MST.',
+        codeExample: `class UnionFind {
+  parent: number[];
+  rank: number[];
+
+  constructor(n: number) {
+    this.parent = Array.from({ length: n }, (_, i) => i);
+    this.rank = new Array(n).fill(0);
+  }
+
+  find(x: number): number {
+    if (this.parent[x] !== x) {
+      this.parent[x] = this.find(this.parent[x]); // path compression
+    }
+    return this.parent[x];
+  }
+
+  union(x: number, y: number): boolean {
+    const px = this.find(x), py = this.find(y);
+    if (px === py) return false; // already connected
+    // Union by rank
+    if (this.rank[px] < this.rank[py]) this.parent[px] = py;
+    else if (this.rank[px] > this.rank[py]) this.parent[py] = px;
+    else { this.parent[py] = px; this.rank[px]++; }
+    return true;
+  }
+
+  connected(x: number, y: number): boolean {
+    return this.find(x) === this.find(y);
+  }
+}
+
+// Redundant Connection: find the edge creating a cycle
+function findRedundantConnection(edges: number[][]): number[] {
+  const uf = new UnionFind(edges.length + 1);
+  for (const [u, v] of edges) {
+    if (!uf.union(u, v)) return [u, v]; // already connected = redundant!
+  }
+  return [];
+}`,
+        tip: '🎯 Interview tip: Union-Find detects cycles in UNDIRECTED graphs. If union(u,v) returns false (they\'re already connected), the edge (u,v) creates a cycle. This is the basis of Kruskal\'s MST algorithm.',
+      },
+      {
+        id: 3,
+        emoji: '📋',
+        title: 'Topological Sort — Dependency Order',
+        narrative: `"Course Schedule": you have courses with prerequisites (course B requires course A first). Is it possible to take all courses? What order?
+
+This is **topological sort**: order a directed acyclic graph (DAG) so all edges go from earlier to later nodes. If there's a cycle, topological sort is impossible.
+
+**Kahn's Algorithm (BFS-based)**:
+1. Count in-degrees of all nodes
+2. Add all nodes with in-degree 0 to a queue (no prerequisites)
+3. Process queue: take a node, add it to result, decrement neighbors' in-degrees
+4. When a neighbor's in-degree hits 0, add it to queue
+5. If result length < n: there's a cycle!
+
+**DFS-based**: do DFS, add each node to the FRONT of result after visiting all its neighbors (post-order, reversed).`,
+        concept: 'Kahn\'s algorithm: topological sort via BFS on in-degrees. Detects cycles: if output has fewer nodes than input, a cycle exists. DFS approach: nodes added to result in reverse finish order. Both are O(V+E). Used for: course prerequisites, build systems, package dependencies, compilation order.',
+        codeExample: `// Course Schedule II — find order or detect cycle
+function findOrder(numCourses: number, prerequisites: number[][]): number[] {
+  const inDegree = new Array(numCourses).fill(0);
+  const adj: number[][] = Array.from({ length: numCourses }, () => []);
+
+  for (const [course, prereq] of prerequisites) {
+    adj[prereq].push(course);
+    inDegree[course]++;
+  }
+
+  // Kahn's algorithm
+  const queue: number[] = [];
+  for (let i = 0; i < numCourses; i++) {
+    if (inDegree[i] === 0) queue.push(i); // no prerequisites
+  }
+
+  const order: number[] = [];
+  while (queue.length > 0) {
+    const course = queue.shift()!;
+    order.push(course);
+    for (const next of adj[course]) {
+      inDegree[next]--;
+      if (inDegree[next] === 0) queue.push(next);
+    }
+  }
+
+  // If we couldn't process all courses, there's a cycle
+  return order.length === numCourses ? order : [];
+}`,
+        tip: '🎯 Interview tip: Topological sort → immediately think "is this a DAG?" and "use Kahn\'s (BFS with in-degrees)". Kahn\'s is easier to implement than DFS-based and directly gives you cycle detection for free.',
+      },
+    ],
+    quiz: [
+      {
+        id: 1,
+        question: 'Why does Dijkstra\'s algorithm NOT work with negative edge weights?',
+        options: ['It uses floating point arithmetic', 'Once a node is finalized, a negative-weight edge could later provide a shorter path, invalidating the greedy assumption', 'Negative weights don\'t exist in practice', 'The min-heap can\'t store negative values'],
+        correctIndex: 1,
+        explanation: 'Dijkstra\'s correctness relies on: once a node is popped from the min-heap, its distance is final. With negative edges, a later path via negative edges might be shorter. This violates the greedy assumption. Use Bellman-Ford (O(VE)) for negative weights, or SPFA.',
+      },
+      {
+        id: 2,
+        question: 'What do the two Union-Find optimizations (path compression + union by rank) achieve?',
+        options: ['O(1) worst case per operation', 'Amortized O(α(n)) ≈ O(1) per operation — inverse Ackermann, effectively constant', 'O(log n) guaranteed per operation', 'O(√n) per operation'],
+        correctIndex: 1,
+        explanation: 'Path compression flattens the tree during find(), making future finds faster. Union by rank keeps trees short by always merging shorter under taller. Together: amortized O(α(n)) where α is the inverse Ackermann function — grows so slowly it\'s ≤5 for any practical n.',
+      },
+      {
+        id: 3,
+        question: 'In Kahn\'s topological sort algorithm, if the output has fewer nodes than the graph, it means:',
+        options: ['The algorithm has a bug', 'There is a cycle in the graph — topological sort is impossible', 'Some nodes were disconnected', 'The input was not sorted'],
+        correctIndex: 1,
+        explanation: 'Kahn\'s processes nodes by removing those with in-degree 0. Nodes in a cycle never reach in-degree 0 (they depend on each other). So if output.length < n, the remaining unprocessed nodes form one or more cycles — proving the graph is not a DAG.',
+      },
+      {
+        id: 4,
+        question: 'The time complexity of Dijkstra\'s algorithm with a binary min-heap is:',
+        options: ['O(V²)', 'O(E log V)', 'O((V + E) log V)', 'O(V log V)'],
+        correctIndex: 2,
+        explanation: 'Each vertex is extracted from the heap once: V extractions × O(log V) each = O(V log V). Each edge causes at most one heap insertion: E insertions × O(log V) each = O(E log V). Total: O((V+E) log V). With a Fibonacci heap: O(E + V log V) but rarely used in practice.',
+      },
+      {
+        id: 5,
+        question: 'Union-Find is preferred over BFS/DFS for connected components when:',
+        options: ['The graph is directed', 'You need to process edges one at a time online (streaming) and query connectivity after each', 'The graph has negative weights', 'You need the actual path between nodes'],
+        correctIndex: 1,
+        explanation: 'BFS/DFS needs the entire graph built first. Union-Find handles streaming edges: add edge (u,v) → call union(u,v). Query if nodes are connected → call find() and compare roots. Each operation is near-O(1). Perfect for "as edges arrive, maintain connected components" problems.',
       },
     ],
   },
