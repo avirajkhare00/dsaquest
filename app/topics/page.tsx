@@ -45,7 +45,7 @@ export default function TopicsPage() {
       <div className="mt-16 text-center">
         <h2 className="text-xl font-bold text-gray-700 mb-4">🔜 Coming Soon</h2>
         <div className="flex flex-wrap justify-center gap-3">
-          {['Graphs & BFS/DFS', 'Dynamic Programming', 'Hash Tables', 'Heaps & Priority Queues', 'Tries', 'Backtracking'].map(topic => (
+          {['Tries', 'Backtracking', 'Greedy Algorithms', 'Bit Manipulation', 'Advanced Graphs (Dijkstra, Union-Find)'].map(topic => (
             <span key={topic} className="px-4 py-2 bg-gray-100 text-gray-500 rounded-full text-sm border border-dashed border-gray-200">
               {topic}
             </span>

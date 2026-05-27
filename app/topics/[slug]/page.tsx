@@ -9,6 +9,10 @@ import ArrayViz from '@/components/visualizers/ArrayViz';
 import LinkedListViz from '@/components/visualizers/LinkedListViz';
 import SortingViz from '@/components/visualizers/SortingViz';
 import TreeViz from '@/components/visualizers/TreeViz';
+import HashTableViz from '@/components/visualizers/HashTableViz';
+import GraphViz from '@/components/visualizers/GraphViz';
+import DPViz from '@/components/visualizers/DPViz';
+import HeapViz from '@/components/visualizers/HeapViz';
 
 type Tab = 'learn' | 'visualize' | 'quiz';
 
@@ -18,6 +22,10 @@ function getVisualizer(slug: string) {
     case 'linked-lists': return <LinkedListViz />;
     case 'sorting': return <SortingViz />;
     case 'trees': return <TreeViz />;
+    case 'hash-tables': return <HashTableViz />;
+    case 'graphs': return <GraphViz />;
+    case 'dynamic-programming': return <DPViz />;
+    case 'heaps': return <HeapViz />;
     default: return <p className="text-gray-500">Visualizer coming soon!</p>;
   }
 }
