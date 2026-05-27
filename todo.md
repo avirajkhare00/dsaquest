@@ -15,6 +15,10 @@
 - [x] Bit Manipulation
 - [x] Advanced Graphs (Dijkstra, Union-Find)
 
+**13/13 topics complete ✅**
+
+---
+
 ## Features
 - [x] Landing page with hero, stats, topic cards, learning path
 - [x] Topics listing page
@@ -30,6 +34,10 @@
 - [x] Search across topics and patterns (with difficulty filter)
 - [x] Deploy to Vercel (vercel.json added)
 
+**13/13 features complete ✅**
+
+---
+
 ## Visualizer Operations
 - [x] Array: access, search, two-pointer, sliding window
 - [x] Linked List: traverse, fast/slow pointers, reverse
@@ -44,3 +52,15 @@
 - [x] Greedy: interval scheduling, jump game, best time to buy stock
 - [x] Bit Manipulation: bit ops, XOR magic, bitmask subsets
 - [x] Advanced Graphs: Dijkstra, Union-Find, Topological Sort (Kahn's)
+
+**13/13 visualizers complete ✅**
+
+---
+
+## Future Ideas
+- [ ] User accounts & cloud sync (Supabase / Firebase)
+- [ ] Spaced repetition reminders (review topics you haven't touched in 7+ days)
+- [ ] Timed quiz mode (interview simulation)
+- [ ] More topics: Segment Trees, Monotonic Stack, Two Heaps, Sliding Window variants
+- [ ] Shareable progress links
+- [ ] Mobile app (React Native / Expo)
