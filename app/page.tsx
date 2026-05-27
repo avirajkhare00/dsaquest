@@ -26,10 +26,10 @@ const features = [
 ];
 
 const stats = [
-  { value: "4", label: "Core Topics" },
-  { value: "12+", label: "Story Chapters" },
-  { value: "20+", label: "Interview Patterns" },
-  { value: "20", label: "Quiz Questions" },
+  { value: "8", label: "Core Topics" },
+  { value: "24", label: "Story Chapters" },
+  { value: "40+", label: "Interview Patterns" },
+  { value: "40", label: "Quiz Questions" },
 ];
 
 export default function Home() {
