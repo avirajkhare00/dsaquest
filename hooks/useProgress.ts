@@ -12,15 +12,19 @@ export interface TopicProgress {
 export type ProgressMap = Record<string, TopicProgress>;
 
 const STORAGE_KEY = 'dsaquest_progress';
+const SOLVED_KEY = 'dsaquest_solved'; // LeetCode problem URLs the user ticked off
 
 export function useProgress() {
   const [progress, setProgress] = useState<ProgressMap>({});
+  const [solved, setSolved] = useState<string[]>([]);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setProgress(JSON.parse(raw));
+      const rawSolved = localStorage.getItem(SOLVED_KEY);
+      if (rawSolved) setSolved(JSON.parse(rawSolved));
     } catch {}
     setLoaded(true);
   }, []);
@@ -57,8 +61,18 @@ export function useProgress() {
     });
   }, []);
 
+  const toggleSolved = useCallback((url: string) => {
+    setSolved(prev => {
+      const next = prev.includes(url) ? prev.filter(u => u !== url) : [...prev, url];
+      try { localStorage.setItem(SOLVED_KEY, JSON.stringify(next)); } catch {}
+      return next;
+    });
+  }, []);
+
   const resetProgress = useCallback(() => {
     save({});
+    setSolved([]);
+    try { localStorage.removeItem(SOLVED_KEY); } catch {}
   }, [save]);
 
   const getTopicStatus = useCallback((slug: string, totalChapters: number) => {
@@ -70,5 +84,5 @@ export function useProgress() {
 
   const totalCompleted = Object.values(progress).filter(p => p.quizCompleted).length;
 
-  return { progress, loaded, markChapterRead, saveQuizScore, resetProgress, getTopicStatus, totalCompleted };
+  return { progress, solved, toggleSolved, loaded, markChapterRead, saveQuizScore, resetProgress, getTopicStatus, totalCompleted };
 }

@@ -52,7 +52,7 @@ export default function TopicPage() {
   const slug = params?.slug as string;
   const topic = getTopicBySlug(slug);
   const [activeTab, setActiveTab] = useState<Tab>('learn');
-  const { markChapterRead, saveQuizScore, getTopicStatus, progress } = useProgress();
+  const { markChapterRead, saveQuizScore, getTopicStatus, progress, solved, toggleSolved } = useProgress();
 
   if (!topic) return notFound();
 
@@ -141,24 +141,32 @@ export default function TopicPage() {
             {pattern.problems && pattern.problems.length > 0 && (
               <div className="mt-3 pt-3 border-t" style={{ borderColor: 'var(--card-border)' }}>
                 <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--muted)' }}>
-                  🔗 LeetCode
+                  🔗 LeetCode · {pattern.problems.filter(p => solved.includes(p.url)).length}/{pattern.problems.length} solved
                 </p>
                 <div className="space-y-1.5">
                   {pattern.problems.map(problem => (
-                    <a
-                      key={problem.url}
-                      href={problem.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between text-xs py-1 px-2 rounded-lg transition-all hover:bg-indigo-50 dark:hover:bg-indigo-950 group"
-                    >
-                      <span className="text-gray-700 dark:text-slate-300 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 line-clamp-1 flex-1">
-                        {problem.title}
-                      </span>
-                      <span className={`ml-2 flex-shrink-0 px-1.5 py-0.5 rounded text-xs font-bold ${difficultyColors[problem.difficulty] ?? difficultyColors.Medium}`}>
-                        {problem.difficulty}
-                      </span>
-                    </a>
+                    <div key={problem.url} className="flex items-center gap-1.5">
+                      <input
+                        type="checkbox"
+                        checked={solved.includes(problem.url)}
+                        onChange={() => toggleSolved(problem.url)}
+                        aria-label={`Mark ${problem.title} as solved`}
+                        className="flex-shrink-0 accent-emerald-600 cursor-pointer"
+                      />
+                      <a
+                        href={problem.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-1 min-w-0 items-center justify-between text-xs py-1 px-2 rounded-lg transition-all hover:bg-indigo-50 dark:hover:bg-indigo-950 group"
+                      >
+                        <span className={`text-gray-700 dark:text-slate-300 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 line-clamp-1 flex-1 ${solved.includes(problem.url) ? 'line-through opacity-60' : ''}`}>
+                          {problem.title}
+                        </span>
+                        <span className={`ml-2 flex-shrink-0 px-1.5 py-0.5 rounded text-xs font-bold ${difficultyColors[problem.difficulty] ?? difficultyColors.Medium}`}>
+                          {problem.difficulty}
+                        </span>
+                      </a>
+                    </div>
                   ))}
                 </div>
               </div>
